@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChannelPanel</class>
+ <widget class="QWidget" name="ChannelPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>369</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="channelVerticalLayout" stretch="0,0,0,1">
+   <item>
+    <widget class="QLabel" name="channelTitleLabel">
+     <property name="text">
+      <string>Canal</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="stimulusGroupBox">
+     <property name="title">
+      <string>Parâmetros do estímulo</string>
+     </property>
+     <layout class="QGridLayout" name="stimulusGridLayout">
+      <item row="0" column="0" colspan="4">
+       <widget class="QCheckBox" name="channelEnabledCheckBox">
+        <property name="text">
+         <string>OFF</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="waveformLabel">
+        <property name="text">
+         <string>Tipo de estímulo </string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="3">
+       <widget class="QComboBox" name="waveformComboBox">
+        <item>
+         <property name="text">
+          <string>Senoidal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Onda Quadrada</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Triangular</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dente de Serra</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Trem de pulso</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Personalizado</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="frequencyLabel">
+        <property name="text">
+         <string>Frequência (Hz)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="frequencyMinusButton">
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="frequencyValueEdit">
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="frequencyPlusButton">
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="amplitudeLabel">
+        <property name="text">
+         <string>Amplitude (µA)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="amplitudeMinusButton">
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="amplitudeValueEdit">
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="amplitudePlusButton">
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="protocolSettingsStack">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="emptyProtocolPage"/>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="channelGraphsTabWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="tab_1">
+      <attribute name="title">
+       <string>Forma de onda</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Evolução do protocolo</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

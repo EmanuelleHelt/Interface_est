@@ -1,0 +1,88 @@
+/* Define a fonte e as cores básicas da aplicação. */
+QWidget {
+    font-family: "Segoe UI";
+    font-size: 12pt;
+    color: #243247;
+    background-color: #FFFFFF;
+}
+
+/* Padroniza os botões da aplicação. */
+QPushButton, QToolButton {
+    min-height: 32px;
+    padding: 6px 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    background-color: #F8FAFC;
+}
+
+QPushButton:hover, QToolButton:hover {
+    background-color: #EFF6FF;
+    border-color: #60A5FA;
+}
+
+QPushButton:pressed, QToolButton:pressed {
+    background-color: #DBEAFE;
+}
+
+QPushButton:checked, QToolButton:checked {
+    background-color: #DBEAFE;
+    border-color: #2563EB;
+    color: #1D4ED8;
+}
+
+QPushButton:disabled, QToolButton:disabled {
+    background-color: #F1F5F9;
+    color: #94A3B8;
+    border-color: #E2E8F0;
+}
+
+/* Padroniza os campos de entrada e seleção. */
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox {
+    min-height: 30px;
+    padding: 4px 8px;
+    border: 1px solid #CBD5E1;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+QLineEdit:focus, QComboBox:focus,
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border-color: #2563EB;
+}
+
+/* Diferencia os títulos dos textos comuns. */
+QLabel[textRole="title"] {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+QLabel[textRole="section"] {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+/* Alinha o conteúdo dos botões do menu lateral à esquerda. */
+QToolButton[buttonRole="sidebar"] {
+    text-align: left;
+    padding: 8px 12px;
+}
+
+/* Reserva espaço para o ícone e o nome completo do protocolo. */
+QToolButton[buttonRole="protocol"] {
+    min-height: 80px;
+    min-width: 110px;
+    padding: 8px 12px;
+}
+
+/* Mostra o resultado da última verificação de conexão. */
+QPushButton[connectionState="success"] {
+    background-color: #DCFCE7;
+    border-color: #15803D;
+    color: #166534;
+}
+
+QPushButton[connectionState="error"] {
+    background-color: #FEE2E2;
+    border-color: #DC2626;
+    color: #991B1B;
+}

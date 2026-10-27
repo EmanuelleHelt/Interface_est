@@ -1,0 +1,29 @@
+{
+	"BUILD_DIR" : "E:/QT/Projects/Neuro-Sutre/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Interface_ES_LAPIS_autogen",
+	"CMAKE_BINARY_DIR" : "E:/QT/Projects/Neuro-Sutre/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "E:/QT/Projects/Neuro-Sutre/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "E:/QT/Projects/Neuro-Sutre",
+	"CMAKE_SOURCE_DIR" : "E:/QT/Projects/Neuro-Sutre",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "E:/QT/Projects/Neuro-Sutre/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/Interface_ES_LAPIS_autogen/include",
+	"INPUTS" : 
+	[
+		"E:/QT/Projects/Neuro-Sutre/Images/thumb_up.png",
+		"E:/QT/Projects/Neuro-Sutre/Images/PEB_logo.png",
+		"E:/QT/Projects/Neuro-Sutre/Images/LAPIS_UFRJ.ico",
+		"E:/QT/Projects/Neuro-Sutre/Images/UPS_logo.png",
+		"E:/QT/Projects/Neuro-Sutre/Images/thumb_down.png"
+	],
+	"LOCK_FILE" : "E:/QT/Projects/Neuro-Sutre/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/Interface_ES_LAPIS_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "E:/QT/6.10.0/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "E:/QT/Projects/Neuro-Sutre/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/CMakeFiles/Interface_ES_LAPIS_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "E:/QT/Projects/Neuro-Sutre/resources.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}

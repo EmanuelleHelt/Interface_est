@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="cont.png">images/cont.png</file>
+        <file alias="home.png">images/home.png</file>
+        <file alias="info.png">images/info.png</file>
+        <file alias="lim.png">images/lim.png</file>
+        <file alias="limiar.png">images/limiar.png</file>
+        <file alias="loag.png">images/loag.png</file>
+        <file alias="logo.png">images/logo.png</file>
+        <file alias="perz.png">images/perz.png</file>
+        <file alias="ramp.png">images/ramp.png</file>
+        <file alias="save.png">images/save.png</file>
+        <file alias="user.png">images/user.png</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file alias="style.qss">resources/styles/styles.qss</file>
+    </qresource>
+</RCC>

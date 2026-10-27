@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RampSettingsPanel</class>
+ <widget class="QWidget" name="RampSettingsPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Configuração da rampa</string>
+  </property>
+  <layout class="QGridLayout" name="rampSettingsGridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="stepAmplitudeLabel">
+     <property name="text">
+      <string>Passo de amplitude (µA)</string>
+     </property>
+     <property name="buddy">
+      <cstring>stepAmplitudeValueEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="stimulationTimeMinusButton">
+     <property name="text">
+      <string>−</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLineEdit" name="stimulationTimeValueEdit">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="4">
+    <widget class="QPushButton" name="feltButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Percepção de estímulo</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="4">
+    <widget class="QLabel" name="resultLabel">
+     <property name="text">
+      <string>Resultado: — µA</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="4">
+    <widget class="QLabel" name="currentAmplitudeLabel">
+     <property name="text">
+      <string>Amplitude atual: — µA</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0" colspan="4">
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string>Estado: Aguardando início</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="stimulationTimeLabel">
+     <property name="text">
+      <string>Tempo de estimulação (s)</string>
+     </property>
+     <property name="buddy">
+      <cstring>stimulationTimeValueEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="restTimePlusButton">
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLineEdit" name="restTimeValueEdit">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="stepAmplitudeMinusButton">
+     <property name="text">
+      <string>−</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLineEdit" name="stepAmplitudeValueEdit">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="restTimeLabel">
+     <property name="text">
+      <string>Tempo de repouso (s)</string>
+     </property>
+     <property name="buddy">
+      <cstring>restTimeValueEdit</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QPushButton" name="stimulationTimePlusButton">
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="restTimeMinusButton">
+     <property name="text">
+      <string>−</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="stepAmplitudePlusButton">
+     <property name="text">
+      <string>+</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>stepAmplitudeMinusButton</tabstop>
+  <tabstop>stepAmplitudeValueEdit</tabstop>
+  <tabstop>stepAmplitudePlusButton</tabstop>
+  <tabstop>stimulationTimeMinusButton</tabstop>
+  <tabstop>stimulationTimeValueEdit</tabstop>
+  <tabstop>stimulationTimePlusButton</tabstop>
+  <tabstop>restTimeMinusButton</tabstop>
+  <tabstop>restTimeValueEdit</tabstop>
+  <tabstop>restTimePlusButton</tabstop>
+  <tabstop>feltButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
