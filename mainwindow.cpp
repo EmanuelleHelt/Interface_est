@@ -48,15 +48,20 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QStyle>
+#include <QTimer>
+#include <QFileDialog>
+#include <QFile>
 
 #define PI 3.14159265
 
 //Modulos de Comunicação
 #include "ES_UdpClient.h"
 #include "ES_WiFiClient.h"
+#include "Aud_UdpClient.h"
 
 
 //Interface
+#include "components/side/sidePanel.h"
 #include "patient.h"
 #include "session.h"
 #include "patientRepository.h"
@@ -67,9 +72,11 @@
 #include "durationPanel.h"
 
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , comm(new ES_UdpClient)
+    , comm_aud(new Aud_UdpClient)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -81,6 +88,14 @@ MainWindow::MainWindow(QWidget *parent)
     comm->SetLogLevel(level);
     comm->esConfig();
     comm->esStart();
+
+    comm_aud->SetLogLevel(level);
+    comm_aud->esConfig();
+    comm_aud->esStart();
+    aud_testar_conexao();
+
+    timerAudio = new QTimer(this);
+    connect(timerAudio, &QTimer::timeout, this, &MainWindow::verificarPedidoAudio);
 
     //test_connection();
     connect(ui->testeCanais_pushButton, &QPushButton::clicked, this, &MainWindow::test_connection);
@@ -234,12 +249,31 @@ void MainWindow::integrarPaineisCanais()
         );
 
     auditivoMainLayout->addWidget(protocolosAuditivo);
+    painelAuditivo = new sidePanel(conteudoAuditivo);
+    auditivoMainLayout->addWidget(painelAuditivo);
+
+    ui->loadProtocolAuditivo->setCheckable(true);
+    ui->AudiometerProtocol->setCheckable(true);
+    ui->PEAProtocol->setCheckable(true);
+    ui->AudiometerProtocol->setAutoExclusive(true);
+    ui->loadProtocolAuditivo->setAutoExclusive(true);
+    ui->PEAProtocol->setAutoExclusive(true);
+
+    connect(ui->AudiometerProtocol, &QToolButton::toggled, painelAuditivo, &QWidget::setVisible);
+
+    connect(painelAuditivo, &sidePanel::iniciarAuditivoClicado, this, &MainWindow::aud_iniciar_estimulo);
+    connect(painelAuditivo, &sidePanel::pararAuditivoClicado, this, &MainWindow::aud_parar_estimulo);
+    connect(painelAuditivo, &sidePanel::selecionarAudioClicado, this, &MainWindow::aud_selecionar_audio);
+    connect(painelAuditivo, &sidePanel::volumeAlterado, this, &MainWindow::aud_alterar_volume);
+
+    ui->AudiometerProtocol->setChecked(true);
+    painelAuditivo->setVisible(ui->AudiometerProtocol->isChecked());
 
     scrollAuditivo->setWidget(conteudoAuditivo);
     tabWidget->addTab(scrollAuditivo, "Estimulação Auditiva");
 
     // -------------------------------------------------------------
-    // ABA 3: MODO MISTO (Placeholder Temporário)
+    // ABA 3: MODO MISTO
     // -------------------------------------------------------------
     QWidget *abaMisto = new QWidget(tabWidget);
     tabWidget->addTab(abaMisto, "Modo Misto");
@@ -859,6 +893,81 @@ void MainWindow::on_actionSobre_triggered()
                           "<p>Versão 1.0.0</p>"
                           "<p>Desenvolvido no LAPIS, 2026.</p>"
                           "<p>Equipamento de uso experimental. "));
+}
+
+// =========================================================
+// ESTIMULADOR AUDITIVO
+// =========================================================
+void MainWindow::aud_testar_conexao()
+{
+    int status = comm_aud->iniciaEstimAud();
+    qDebug() << "auditivo:";
+    if (status == 1) {
+        qDebug() << "[OK] Dispositivo auditivo respondendo.";
+    } else {
+        qDebug() << "[ERRO] Falha código: " << status;
+    }
+}
+
+void MainWindow::aud_iniciar_estimulo()
+{
+    int status = comm_aud->iniciaEstimAud();
+    if(status == 1) {
+        timerAudio->start(20);
+    }
+}
+
+void MainWindow::aud_parar_estimulo()
+{
+    int status = comm_aud->finEstimAud();
+    if(status == 1) {
+        qDebug() << "[OK] Comando PARAR AUDITIVO enviado.";
+        timerAudio->stop();
+    }
+}
+
+void MainWindow::verificarPedidoAudio()
+{
+    byte ch_direito = 0;
+    byte ch_esquerdo = 0;
+    int status = comm_aud->EstadoPugs(ch_direito, ch_esquerdo);
+
+    if (status == OK) {
+        qDebug() << "Estado dos canais -> Dir:" << ch_direito << "Esq:" << ch_esquerdo;
+    }
+}
+
+void MainWindow::prepararSinalWAV(QString caminho)
+{
+    QFile arquivoWav(caminho);
+    if (!arquivoWav.open(QIODevice::ReadOnly)) {
+        qDebug() << "[ERRO] Não foi possível abrir o arquivo de áudio.";
+        return;
+    }
+    bufferAudioCompleto.clear();
+    arquivoWav.read(44);
+    bufferAudioCompleto = arquivoWav.readAll();
+    arquivoWav.close();
+    indiceLeitura = 0;
+    qDebug() << "[AUDITIVO] Arquivo WAV carregado na memória (" << bufferAudioCompleto.size() << "bytes).";
+}
+
+void MainWindow::aud_selecionar_audio()
+{
+    QString caminhoArquivo = QFileDialog::getOpenFileName(this, "Selecione o arquivo de áudio", "", "Arquivos de Áudio (*.wav)");
+    if (!caminhoArquivo.isEmpty()) {
+        prepararSinalWAV(caminhoArquivo);
+    }
+}
+
+void MainWindow::aud_alterar_volume(int vol_dir, int vol_esq)
+{
+    int status = comm_aud->estabVolume((byte)vol_dir, (byte)vol_esq);
+    if (status == OK) {
+        qDebug() << "[AUDITIVO] Volume -> Dir:" << vol_dir << "| Esq:" << vol_esq;
+    } else {
+        qDebug() << "[ERRO] Falha ao atualizar volume.";
+    }
 }
 
 //destrutor da classe MainWindow

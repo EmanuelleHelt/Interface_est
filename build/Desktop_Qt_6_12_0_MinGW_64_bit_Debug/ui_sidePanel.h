@@ -19,198 +19,219 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_ChannelPanel
+class Ui_sidePanel
 {
 public:
+    QVBoxLayout *verticalLayout_2;
     QGroupBox *stimulusGroupBox;
-    QWidget *widget;
+    QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_5;
+    QPushButton *aud_selecionar_audio;
+    QPushButton *aud_iniciar_estimulo;
+    QPushButton *aud_parar_estimulo;
     QHBoxLayout *horizontalLayout;
     QLabel *waveformLabel;
-    QComboBox *waveformComboBox;
+    QComboBox *comboCanalEstimulo;
     QHBoxLayout *horizontalLayout_2;
     QLabel *waveformLabel_2;
-    QComboBox *waveformComboBox_2;
+    QComboBox *comboTipoEstimulo;
     QHBoxLayout *horizontalLayout_3;
     QLabel *frequencyLabel;
-    QLineEdit *frequencyValueEdit;
+    QLineEdit *spinDuracaoEstimulo;
     QHBoxLayout *horizontalLayout_4;
     QLabel *amplitudeLabel;
-    QCheckBox *checkBox;
-    QLineEdit *amplitudeValueEdit;
-    QFrame *frame_ch1_2;
-    QWidget *widget1;
-    QHBoxLayout *horizontalLayout_5;
+    QCheckBox *checkReproducaoCiclica;
+    QLineEdit *timeReproducaoCiclica;
     QFrame *frame_11;
     QVBoxLayout *verticalLayout_11;
     QFrame *frame_ch1_ciclos_4;
     QHBoxLayout *horizontalLayout_49;
     QLabel *label_61;
-    QSpinBox *esq_spinBox_vol;
+    QSpinBox *spinVolume;
     QFrame *frame_ch1_ciclos_2;
     QHBoxLayout *horizontalLayout_22;
     QLabel *label_31;
-    QSpinBox *esq_spinBox_freqhz;
+    QSpinBox *spinFreqAudio;
     QFrame *frame_ch1_freq_2;
     QHBoxLayout *horizontalLayout_24;
     QLabel *label_ch1_freq_2;
-    QSpinBox *esq_spinBox_ms;
+    QSpinBox *spinDuracaoMs;
     QFrame *frame_ch1_ampl_2;
     QHBoxLayout *horizontalLayout_25;
     QLabel *label_ch1_ampl_2;
-    QDoubleSpinBox *esq_spinBox_amplitude;
+    QDoubleSpinBox *spinAmplitude;
     QFrame *frame_20;
     QHBoxLayout *horizontalLayout_30;
     QLabel *label_38;
-    QSpinBox *esq_spinBox_freqhzport;
+    QSpinBox *spinFreqPortadora;
     QFrame *frame_21;
     QHBoxLayout *horizontalLayout_31;
     QLabel *label_39;
-    QSpinBox *esq_spinBox_freqhzmod;
+    QSpinBox *spinFreqModulacao;
     QFrame *frame_16;
     QHBoxLayout *horizontalLayout_26;
     QLabel *label_34;
-    QSpinBox *esq_spinBox_fatorammod;
+    QSpinBox *spinFatorAM;
     QFrame *frame_17;
     QHBoxLayout *horizontalLayout_27;
     QLabel *label_35;
-    QSpinBox *esq_spinBox_expomod;
+    QSpinBox *spinExponencialMod;
     QFrame *frame_18;
     QHBoxLayout *horizontalLayout_28;
     QLabel *label_36;
-    QSpinBox *esq_spinBox_fasefm;
+    QSpinBox *spinFaseFM;
     QFrame *frame_19;
     QHBoxLayout *horizontalLayout_29;
     QLabel *label_37;
-    QSpinBox *esq_spinBox_fatorfmmod;
-    QVBoxLayout *verticalLayout_2;
-    QFrame *frame;
-    QFrame *frame_2;
+    QSpinBox *spinFatorFM;
+    QSpacerItem *verticalSpacer;
 
-    void setupUi(QWidget *ChannelPanel)
+    void setupUi(QWidget *sidePanel)
     {
-        if (ChannelPanel->objectName().isEmpty())
-            ChannelPanel->setObjectName("ChannelPanel");
-        ChannelPanel->resize(570, 677);
-        stimulusGroupBox = new QGroupBox(ChannelPanel);
+        if (sidePanel->objectName().isEmpty())
+            sidePanel->setObjectName("sidePanel");
+        sidePanel->resize(830, 879);
+        verticalLayout_2 = new QVBoxLayout(sidePanel);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        stimulusGroupBox = new QGroupBox(sidePanel);
         stimulusGroupBox->setObjectName("stimulusGroupBox");
-        stimulusGroupBox->setGeometry(QRect(9, 9, 551, 161));
-        widget = new QWidget(stimulusGroupBox);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(11, 31, 531, 124));
-        verticalLayout = new QVBoxLayout(widget);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(stimulusGroupBox->sizePolicy().hasHeightForWidth());
+        stimulusGroupBox->setSizePolicy(sizePolicy);
+        stimulusGroupBox->setMinimumSize(QSize(0, 300));
+        stimulusGroupBox->setFlat(false);
+        verticalLayout_3 = new QVBoxLayout(stimulusGroupBox);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        aud_selecionar_audio = new QPushButton(stimulusGroupBox);
+        aud_selecionar_audio->setObjectName("aud_selecionar_audio");
+        aud_selecionar_audio->setMinimumSize(QSize(0, 29));
+
+        horizontalLayout_5->addWidget(aud_selecionar_audio);
+
+        aud_iniciar_estimulo = new QPushButton(stimulusGroupBox);
+        aud_iniciar_estimulo->setObjectName("aud_iniciar_estimulo");
+        aud_iniciar_estimulo->setMinimumSize(QSize(0, 29));
+
+        horizontalLayout_5->addWidget(aud_iniciar_estimulo);
+
+        aud_parar_estimulo = new QPushButton(stimulusGroupBox);
+        aud_parar_estimulo->setObjectName("aud_parar_estimulo");
+        aud_parar_estimulo->setMinimumSize(QSize(0, 29));
+
+        horizontalLayout_5->addWidget(aud_parar_estimulo);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        waveformLabel = new QLabel(widget);
+        waveformLabel = new QLabel(stimulusGroupBox);
         waveformLabel->setObjectName("waveformLabel");
 
         horizontalLayout->addWidget(waveformLabel);
 
-        waveformComboBox = new QComboBox(widget);
-        waveformComboBox->addItem(QString());
-        waveformComboBox->addItem(QString());
-        waveformComboBox->setObjectName("waveformComboBox");
+        comboCanalEstimulo = new QComboBox(stimulusGroupBox);
+        comboCanalEstimulo->addItem(QString());
+        comboCanalEstimulo->addItem(QString());
+        comboCanalEstimulo->setObjectName("comboCanalEstimulo");
 
-        horizontalLayout->addWidget(waveformComboBox);
+        horizontalLayout->addWidget(comboCanalEstimulo);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        waveformLabel_2 = new QLabel(widget);
+        waveformLabel_2 = new QLabel(stimulusGroupBox);
         waveformLabel_2->setObjectName("waveformLabel_2");
 
         horizontalLayout_2->addWidget(waveformLabel_2);
 
-        waveformComboBox_2 = new QComboBox(widget);
-        waveformComboBox_2->addItem(QString());
-        waveformComboBox_2->setObjectName("waveformComboBox_2");
+        comboTipoEstimulo = new QComboBox(stimulusGroupBox);
+        comboTipoEstimulo->addItem(QString());
+        comboTipoEstimulo->setObjectName("comboTipoEstimulo");
 
-        horizontalLayout_2->addWidget(waveformComboBox_2);
+        horizontalLayout_2->addWidget(comboTipoEstimulo);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        frequencyLabel = new QLabel(widget);
+        frequencyLabel = new QLabel(stimulusGroupBox);
         frequencyLabel->setObjectName("frequencyLabel");
 
         horizontalLayout_3->addWidget(frequencyLabel);
 
-        frequencyValueEdit = new QLineEdit(widget);
-        frequencyValueEdit->setObjectName("frequencyValueEdit");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(frequencyValueEdit->sizePolicy().hasHeightForWidth());
-        frequencyValueEdit->setSizePolicy(sizePolicy);
-        frequencyValueEdit->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        spinDuracaoEstimulo = new QLineEdit(stimulusGroupBox);
+        spinDuracaoEstimulo->setObjectName("spinDuracaoEstimulo");
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(spinDuracaoEstimulo->sizePolicy().hasHeightForWidth());
+        spinDuracaoEstimulo->setSizePolicy(sizePolicy1);
+        spinDuracaoEstimulo->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        horizontalLayout_3->addWidget(frequencyValueEdit);
+        horizontalLayout_3->addWidget(spinDuracaoEstimulo);
 
 
         verticalLayout->addLayout(horizontalLayout_3);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName("horizontalLayout_4");
-        amplitudeLabel = new QLabel(widget);
+        amplitudeLabel = new QLabel(stimulusGroupBox);
         amplitudeLabel->setObjectName("amplitudeLabel");
 
         horizontalLayout_4->addWidget(amplitudeLabel);
 
-        checkBox = new QCheckBox(widget);
-        checkBox->setObjectName("checkBox");
+        checkReproducaoCiclica = new QCheckBox(stimulusGroupBox);
+        checkReproducaoCiclica->setObjectName("checkReproducaoCiclica");
 
-        horizontalLayout_4->addWidget(checkBox);
+        horizontalLayout_4->addWidget(checkReproducaoCiclica);
 
-        amplitudeValueEdit = new QLineEdit(widget);
-        amplitudeValueEdit->setObjectName("amplitudeValueEdit");
-        sizePolicy.setHeightForWidth(amplitudeValueEdit->sizePolicy().hasHeightForWidth());
-        amplitudeValueEdit->setSizePolicy(sizePolicy);
-        amplitudeValueEdit->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        timeReproducaoCiclica = new QLineEdit(stimulusGroupBox);
+        timeReproducaoCiclica->setObjectName("timeReproducaoCiclica");
+        sizePolicy1.setHeightForWidth(timeReproducaoCiclica->sizePolicy().hasHeightForWidth());
+        timeReproducaoCiclica->setSizePolicy(sizePolicy1);
+        timeReproducaoCiclica->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        horizontalLayout_4->addWidget(amplitudeValueEdit);
+        horizontalLayout_4->addWidget(timeReproducaoCiclica);
 
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        frame_ch1_2 = new QFrame(ChannelPanel);
-        frame_ch1_2->setObjectName("frame_ch1_2");
-        frame_ch1_2->setGeometry(QRect(10, 170, 551, 501));
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
-        sizePolicy1.setHorizontalStretch(1);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(frame_ch1_2->sizePolicy().hasHeightForWidth());
-        frame_ch1_2->setSizePolicy(sizePolicy1);
-        frame_ch1_2->setFrameShape(QFrame::Shape::Box);
-        frame_ch1_2->setFrameShadow(QFrame::Shadow::Raised);
-        frame_ch1_2->setLineWidth(1);
-        frame_ch1_2->setMidLineWidth(0);
-        widget1 = new QWidget(frame_ch1_2);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(11, 10, 531, 548));
-        horizontalLayout_5 = new QHBoxLayout(widget1);
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        frame_11 = new QFrame(widget1);
+
+        verticalLayout_3->addLayout(verticalLayout);
+
+
+        verticalLayout_2->addWidget(stimulusGroupBox);
+
+        frame_11 = new QFrame(sidePanel);
         frame_11->setObjectName("frame_11");
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy2.setHorizontalStretch(1);
         sizePolicy2.setVerticalStretch(4);
         sizePolicy2.setHeightForWidth(frame_11->sizePolicy().hasHeightForWidth());
         frame_11->setSizePolicy(sizePolicy2);
+        frame_11->setMinimumSize(QSize(350, 546));
         frame_11->setFrameShape(QFrame::Shape::Box);
         frame_11->setFrameShadow(QFrame::Shadow::Raised);
+        frame_11->setLineWidth(0);
         verticalLayout_11 = new QVBoxLayout(frame_11);
         verticalLayout_11->setObjectName("verticalLayout_11");
         frame_ch1_ciclos_4 = new QFrame(frame_11);
@@ -225,19 +246,20 @@ public:
 
         horizontalLayout_49->addWidget(label_61);
 
-        esq_spinBox_vol = new QSpinBox(frame_ch1_ciclos_4);
-        esq_spinBox_vol->setObjectName("esq_spinBox_vol");
+        spinVolume = new QSpinBox(frame_ch1_ciclos_4);
+        spinVolume->setObjectName("spinVolume");
         QSizePolicy sizePolicy3(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Fixed);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(esq_spinBox_vol->sizePolicy().hasHeightForWidth());
-        esq_spinBox_vol->setSizePolicy(sizePolicy3);
-        esq_spinBox_vol->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_vol->setMaximum(100);
-        esq_spinBox_vol->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_vol->setValue(100);
+        sizePolicy3.setHeightForWidth(spinVolume->sizePolicy().hasHeightForWidth());
+        spinVolume->setSizePolicy(sizePolicy3);
+        spinVolume->setMinimumSize(QSize(110, 0));
+        spinVolume->setMaximumSize(QSize(90, 16777215));
+        spinVolume->setMaximum(100);
+        spinVolume->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinVolume->setValue(100);
 
-        horizontalLayout_49->addWidget(esq_spinBox_vol);
+        horizontalLayout_49->addWidget(spinVolume);
 
 
         verticalLayout_11->addWidget(frame_ch1_ciclos_4);
@@ -254,16 +276,17 @@ public:
 
         horizontalLayout_22->addWidget(label_31);
 
-        esq_spinBox_freqhz = new QSpinBox(frame_ch1_ciclos_2);
-        esq_spinBox_freqhz->setObjectName("esq_spinBox_freqhz");
-        sizePolicy3.setHeightForWidth(esq_spinBox_freqhz->sizePolicy().hasHeightForWidth());
-        esq_spinBox_freqhz->setSizePolicy(sizePolicy3);
-        esq_spinBox_freqhz->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_freqhz->setMaximum(10000);
-        esq_spinBox_freqhz->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_freqhz->setValue(100);
+        spinFreqAudio = new QSpinBox(frame_ch1_ciclos_2);
+        spinFreqAudio->setObjectName("spinFreqAudio");
+        sizePolicy3.setHeightForWidth(spinFreqAudio->sizePolicy().hasHeightForWidth());
+        spinFreqAudio->setSizePolicy(sizePolicy3);
+        spinFreqAudio->setMinimumSize(QSize(110, 0));
+        spinFreqAudio->setMaximumSize(QSize(90, 16777215));
+        spinFreqAudio->setMaximum(10000);
+        spinFreqAudio->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinFreqAudio->setValue(100);
 
-        horizontalLayout_22->addWidget(esq_spinBox_freqhz);
+        horizontalLayout_22->addWidget(spinFreqAudio);
 
 
         verticalLayout_11->addWidget(frame_ch1_ciclos_2);
@@ -280,16 +303,17 @@ public:
 
         horizontalLayout_24->addWidget(label_ch1_freq_2);
 
-        esq_spinBox_ms = new QSpinBox(frame_ch1_freq_2);
-        esq_spinBox_ms->setObjectName("esq_spinBox_ms");
-        sizePolicy3.setHeightForWidth(esq_spinBox_ms->sizePolicy().hasHeightForWidth());
-        esq_spinBox_ms->setSizePolicy(sizePolicy3);
-        esq_spinBox_ms->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_ms->setMaximum(64000);
-        esq_spinBox_ms->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_ms->setValue(3200);
+        spinDuracaoMs = new QSpinBox(frame_ch1_freq_2);
+        spinDuracaoMs->setObjectName("spinDuracaoMs");
+        sizePolicy3.setHeightForWidth(spinDuracaoMs->sizePolicy().hasHeightForWidth());
+        spinDuracaoMs->setSizePolicy(sizePolicy3);
+        spinDuracaoMs->setMinimumSize(QSize(110, 0));
+        spinDuracaoMs->setMaximumSize(QSize(90, 16777215));
+        spinDuracaoMs->setMaximum(64000);
+        spinDuracaoMs->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinDuracaoMs->setValue(3200);
 
-        horizontalLayout_24->addWidget(esq_spinBox_ms);
+        horizontalLayout_24->addWidget(spinDuracaoMs);
 
 
         verticalLayout_11->addWidget(frame_ch1_freq_2);
@@ -306,12 +330,12 @@ public:
 
         horizontalLayout_25->addWidget(label_ch1_ampl_2);
 
-        esq_spinBox_amplitude = new QDoubleSpinBox(frame_ch1_ampl_2);
-        esq_spinBox_amplitude->setObjectName("esq_spinBox_amplitude");
-        esq_spinBox_amplitude->setMinimumSize(QSize(50, 0));
-        esq_spinBox_amplitude->setMaximumSize(QSize(90, 16777215));
+        spinAmplitude = new QDoubleSpinBox(frame_ch1_ampl_2);
+        spinAmplitude->setObjectName("spinAmplitude");
+        spinAmplitude->setMinimumSize(QSize(110, 0));
+        spinAmplitude->setMaximumSize(QSize(90, 16777215));
 
-        horizontalLayout_25->addWidget(esq_spinBox_amplitude);
+        horizontalLayout_25->addWidget(spinAmplitude);
 
 
         verticalLayout_11->addWidget(frame_ch1_ampl_2);
@@ -328,16 +352,17 @@ public:
 
         horizontalLayout_30->addWidget(label_38);
 
-        esq_spinBox_freqhzport = new QSpinBox(frame_20);
-        esq_spinBox_freqhzport->setObjectName("esq_spinBox_freqhzport");
-        sizePolicy3.setHeightForWidth(esq_spinBox_freqhzport->sizePolicy().hasHeightForWidth());
-        esq_spinBox_freqhzport->setSizePolicy(sizePolicy3);
-        esq_spinBox_freqhzport->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_freqhzport->setMaximum(64000);
-        esq_spinBox_freqhzport->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_freqhzport->setValue(1000);
+        spinFreqPortadora = new QSpinBox(frame_20);
+        spinFreqPortadora->setObjectName("spinFreqPortadora");
+        sizePolicy3.setHeightForWidth(spinFreqPortadora->sizePolicy().hasHeightForWidth());
+        spinFreqPortadora->setSizePolicy(sizePolicy3);
+        spinFreqPortadora->setMinimumSize(QSize(110, 0));
+        spinFreqPortadora->setMaximumSize(QSize(90, 16777215));
+        spinFreqPortadora->setMaximum(64000);
+        spinFreqPortadora->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinFreqPortadora->setValue(1000);
 
-        horizontalLayout_30->addWidget(esq_spinBox_freqhzport);
+        horizontalLayout_30->addWidget(spinFreqPortadora);
 
 
         verticalLayout_11->addWidget(frame_20);
@@ -354,16 +379,17 @@ public:
 
         horizontalLayout_31->addWidget(label_39);
 
-        esq_spinBox_freqhzmod = new QSpinBox(frame_21);
-        esq_spinBox_freqhzmod->setObjectName("esq_spinBox_freqhzmod");
-        sizePolicy3.setHeightForWidth(esq_spinBox_freqhzmod->sizePolicy().hasHeightForWidth());
-        esq_spinBox_freqhzmod->setSizePolicy(sizePolicy3);
-        esq_spinBox_freqhzmod->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_freqhzmod->setMaximum(64000);
-        esq_spinBox_freqhzmod->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_freqhzmod->setValue(1000);
+        spinFreqModulacao = new QSpinBox(frame_21);
+        spinFreqModulacao->setObjectName("spinFreqModulacao");
+        sizePolicy3.setHeightForWidth(spinFreqModulacao->sizePolicy().hasHeightForWidth());
+        spinFreqModulacao->setSizePolicy(sizePolicy3);
+        spinFreqModulacao->setMinimumSize(QSize(110, 0));
+        spinFreqModulacao->setMaximumSize(QSize(90, 16777215));
+        spinFreqModulacao->setMaximum(64000);
+        spinFreqModulacao->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinFreqModulacao->setValue(1000);
 
-        horizontalLayout_31->addWidget(esq_spinBox_freqhzmod);
+        horizontalLayout_31->addWidget(spinFreqModulacao);
 
 
         verticalLayout_11->addWidget(frame_21);
@@ -380,16 +406,17 @@ public:
 
         horizontalLayout_26->addWidget(label_34);
 
-        esq_spinBox_fatorammod = new QSpinBox(frame_16);
-        esq_spinBox_fatorammod->setObjectName("esq_spinBox_fatorammod");
-        sizePolicy3.setHeightForWidth(esq_spinBox_fatorammod->sizePolicy().hasHeightForWidth());
-        esq_spinBox_fatorammod->setSizePolicy(sizePolicy3);
-        esq_spinBox_fatorammod->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_fatorammod->setMaximum(64000);
-        esq_spinBox_fatorammod->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_fatorammod->setValue(1000);
+        spinFatorAM = new QSpinBox(frame_16);
+        spinFatorAM->setObjectName("spinFatorAM");
+        sizePolicy3.setHeightForWidth(spinFatorAM->sizePolicy().hasHeightForWidth());
+        spinFatorAM->setSizePolicy(sizePolicy3);
+        spinFatorAM->setMinimumSize(QSize(110, 0));
+        spinFatorAM->setMaximumSize(QSize(90, 16777215));
+        spinFatorAM->setMaximum(64000);
+        spinFatorAM->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinFatorAM->setValue(1000);
 
-        horizontalLayout_26->addWidget(esq_spinBox_fatorammod);
+        horizontalLayout_26->addWidget(spinFatorAM);
 
 
         verticalLayout_11->addWidget(frame_16);
@@ -406,16 +433,17 @@ public:
 
         horizontalLayout_27->addWidget(label_35);
 
-        esq_spinBox_expomod = new QSpinBox(frame_17);
-        esq_spinBox_expomod->setObjectName("esq_spinBox_expomod");
-        sizePolicy3.setHeightForWidth(esq_spinBox_expomod->sizePolicy().hasHeightForWidth());
-        esq_spinBox_expomod->setSizePolicy(sizePolicy3);
-        esq_spinBox_expomod->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_expomod->setMaximum(64000);
-        esq_spinBox_expomod->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_expomod->setValue(1000);
+        spinExponencialMod = new QSpinBox(frame_17);
+        spinExponencialMod->setObjectName("spinExponencialMod");
+        sizePolicy3.setHeightForWidth(spinExponencialMod->sizePolicy().hasHeightForWidth());
+        spinExponencialMod->setSizePolicy(sizePolicy3);
+        spinExponencialMod->setMinimumSize(QSize(110, 0));
+        spinExponencialMod->setMaximumSize(QSize(90, 16777215));
+        spinExponencialMod->setMaximum(64000);
+        spinExponencialMod->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinExponencialMod->setValue(1000);
 
-        horizontalLayout_27->addWidget(esq_spinBox_expomod);
+        horizontalLayout_27->addWidget(spinExponencialMod);
 
 
         verticalLayout_11->addWidget(frame_17);
@@ -432,16 +460,17 @@ public:
 
         horizontalLayout_28->addWidget(label_36);
 
-        esq_spinBox_fasefm = new QSpinBox(frame_18);
-        esq_spinBox_fasefm->setObjectName("esq_spinBox_fasefm");
-        sizePolicy3.setHeightForWidth(esq_spinBox_fasefm->sizePolicy().hasHeightForWidth());
-        esq_spinBox_fasefm->setSizePolicy(sizePolicy3);
-        esq_spinBox_fasefm->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_fasefm->setMaximum(64000);
-        esq_spinBox_fasefm->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_fasefm->setValue(1000);
+        spinFaseFM = new QSpinBox(frame_18);
+        spinFaseFM->setObjectName("spinFaseFM");
+        sizePolicy3.setHeightForWidth(spinFaseFM->sizePolicy().hasHeightForWidth());
+        spinFaseFM->setSizePolicy(sizePolicy3);
+        spinFaseFM->setMinimumSize(QSize(110, 0));
+        spinFaseFM->setMaximumSize(QSize(90, 16777215));
+        spinFaseFM->setMaximum(64000);
+        spinFaseFM->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinFaseFM->setValue(1000);
 
-        horizontalLayout_28->addWidget(esq_spinBox_fasefm);
+        horizontalLayout_28->addWidget(spinFaseFM);
 
 
         verticalLayout_11->addWidget(frame_18);
@@ -458,80 +487,69 @@ public:
 
         horizontalLayout_29->addWidget(label_37);
 
-        esq_spinBox_fatorfmmod = new QSpinBox(frame_19);
-        esq_spinBox_fatorfmmod->setObjectName("esq_spinBox_fatorfmmod");
-        sizePolicy3.setHeightForWidth(esq_spinBox_fatorfmmod->sizePolicy().hasHeightForWidth());
-        esq_spinBox_fatorfmmod->setSizePolicy(sizePolicy3);
-        esq_spinBox_fatorfmmod->setMaximumSize(QSize(90, 16777215));
-        esq_spinBox_fatorfmmod->setMaximum(64000);
-        esq_spinBox_fatorfmmod->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
-        esq_spinBox_fatorfmmod->setValue(1000);
+        spinFatorFM = new QSpinBox(frame_19);
+        spinFatorFM->setObjectName("spinFatorFM");
+        sizePolicy3.setHeightForWidth(spinFatorFM->sizePolicy().hasHeightForWidth());
+        spinFatorFM->setSizePolicy(sizePolicy3);
+        spinFatorFM->setMinimumSize(QSize(110, 0));
+        spinFatorFM->setMaximumSize(QSize(90, 16777215));
+        spinFatorFM->setMaximum(64000);
+        spinFatorFM->setStepType(QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        spinFatorFM->setValue(1000);
 
-        horizontalLayout_29->addWidget(esq_spinBox_fatorfmmod);
+        horizontalLayout_29->addWidget(spinFatorFM);
 
 
         verticalLayout_11->addWidget(frame_19);
 
 
-        horizontalLayout_5->addWidget(frame_11);
+        verticalLayout_2->addWidget(frame_11);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName("verticalLayout_2");
-        frame = new QFrame(widget1);
-        frame->setObjectName("frame");
-        frame->setFrameShape(QFrame::Shape::StyledPanel);
-        frame->setFrameShadow(QFrame::Shadow::Raised);
+        verticalSpacer = new QSpacerItem(20, 0, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
-        verticalLayout_2->addWidget(frame);
-
-        frame_2 = new QFrame(widget1);
-        frame_2->setObjectName("frame_2");
-        frame_2->setFrameShape(QFrame::Shape::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Shadow::Raised);
-
-        verticalLayout_2->addWidget(frame_2);
+        verticalLayout_2->addItem(verticalSpacer);
 
 
-        horizontalLayout_5->addLayout(verticalLayout_2);
+        retranslateUi(sidePanel);
 
-
-        retranslateUi(ChannelPanel);
-
-        QMetaObject::connectSlotsByName(ChannelPanel);
+        QMetaObject::connectSlotsByName(sidePanel);
     } // setupUi
 
-    void retranslateUi(QWidget *ChannelPanel)
+    void retranslateUi(QWidget *sidePanel)
     {
-        stimulusGroupBox->setTitle(QCoreApplication::translate("ChannelPanel", "Par\303\242metros do est\303\255mulo", nullptr));
-        waveformLabel->setText(QCoreApplication::translate("ChannelPanel", "Canal de est\303\255mulo", nullptr));
-        waveformComboBox->setItemText(0, QCoreApplication::translate("ChannelPanel", "Esquerdo", nullptr));
-        waveformComboBox->setItemText(1, QCoreApplication::translate("ChannelPanel", "Direito", nullptr));
+        stimulusGroupBox->setTitle(QCoreApplication::translate("sidePanel", "Par\303\242metros do est\303\255mulo", nullptr));
+        aud_selecionar_audio->setText(QCoreApplication::translate("sidePanel", "Selecionar Audio", nullptr));
+        aud_iniciar_estimulo->setText(QCoreApplication::translate("sidePanel", "Iniciar", nullptr));
+        aud_parar_estimulo->setText(QCoreApplication::translate("sidePanel", "Parar", nullptr));
+        waveformLabel->setText(QCoreApplication::translate("sidePanel", "Canal de est\303\255mulo", nullptr));
+        comboCanalEstimulo->setItemText(0, QCoreApplication::translate("sidePanel", "Esquerdo", nullptr));
+        comboCanalEstimulo->setItemText(1, QCoreApplication::translate("sidePanel", "Direito", nullptr));
 
-        waveformLabel_2->setText(QCoreApplication::translate("ChannelPanel", "Tipo de est\303\255mulo ", nullptr));
-        waveformComboBox_2->setItemText(0, QCoreApplication::translate("ChannelPanel", "Tipos...", nullptr));
+        waveformLabel_2->setText(QCoreApplication::translate("sidePanel", "Tipo de est\303\255mulo ", nullptr));
+        comboTipoEstimulo->setItemText(0, QCoreApplication::translate("sidePanel", "Tipos...", nullptr));
 
-        frequencyLabel->setText(QCoreApplication::translate("ChannelPanel", "Dura\303\247\303\243o do est\303\255mulo", nullptr));
-        frequencyValueEdit->setText(QCoreApplication::translate("ChannelPanel", "1024", nullptr));
-        amplitudeLabel->setText(QCoreApplication::translate("ChannelPanel", "Reprodu\303\247\303\243o c\303\255clica", nullptr));
-        checkBox->setText(QString());
-        amplitudeValueEdit->setText(QCoreApplication::translate("ChannelPanel", "00:00:00", nullptr));
-        label_61->setText(QCoreApplication::translate("ChannelPanel", "Volume (%)", nullptr));
-        label_31->setText(QCoreApplication::translate("ChannelPanel", "Frequ\303\252ncia (Hz) audio", nullptr));
-        label_ch1_freq_2->setText(QCoreApplication::translate("ChannelPanel", "Dura\303\247\303\243o est\303\255mulo (ms)", nullptr));
-        label_ch1_ampl_2->setText(QCoreApplication::translate("ChannelPanel", "Amplitude (%)", nullptr));
-        label_38->setText(QCoreApplication::translate("ChannelPanel", "Frequ\303\252ncia portadora (Hz)", nullptr));
-        label_39->setText(QCoreApplication::translate("ChannelPanel", "Frequ\303\252ncia de modula\303\247\303\243o (Hz)", nullptr));
-        label_34->setText(QCoreApplication::translate("ChannelPanel", "Fator de modula\303\247\303\243o AM (%)", nullptr));
-        label_35->setText(QCoreApplication::translate("ChannelPanel", "Exponencial do modulador", nullptr));
-        label_36->setText(QCoreApplication::translate("ChannelPanel", "Fase FM", nullptr));
-        label_37->setText(QCoreApplication::translate("ChannelPanel", "Fator de modula\303\247\303\243o FM (%)", nullptr));
-        (void)ChannelPanel;
+        frequencyLabel->setText(QCoreApplication::translate("sidePanel", "Dura\303\247\303\243o do est\303\255mulo", nullptr));
+        spinDuracaoEstimulo->setText(QCoreApplication::translate("sidePanel", "1024", nullptr));
+        amplitudeLabel->setText(QCoreApplication::translate("sidePanel", "Reprodu\303\247\303\243o c\303\255clica", nullptr));
+        checkReproducaoCiclica->setText(QString());
+        timeReproducaoCiclica->setText(QCoreApplication::translate("sidePanel", "00:00:00", nullptr));
+        label_61->setText(QCoreApplication::translate("sidePanel", "Volume (%)", nullptr));
+        label_31->setText(QCoreApplication::translate("sidePanel", "Frequ\303\252ncia (Hz) audio", nullptr));
+        label_ch1_freq_2->setText(QCoreApplication::translate("sidePanel", "Dura\303\247\303\243o est\303\255mulo (ms)", nullptr));
+        label_ch1_ampl_2->setText(QCoreApplication::translate("sidePanel", "Amplitude (%)", nullptr));
+        label_38->setText(QCoreApplication::translate("sidePanel", "Frequ\303\252ncia portadora (Hz)", nullptr));
+        label_39->setText(QCoreApplication::translate("sidePanel", "Frequ\303\252ncia de modula\303\247\303\243o (Hz)", nullptr));
+        label_34->setText(QCoreApplication::translate("sidePanel", "Fator de modula\303\247\303\243o AM (%)", nullptr));
+        label_35->setText(QCoreApplication::translate("sidePanel", "Exponencial do modulador", nullptr));
+        label_36->setText(QCoreApplication::translate("sidePanel", "Fase FM", nullptr));
+        label_37->setText(QCoreApplication::translate("sidePanel", "Fator de modula\303\247\303\243o FM (%)", nullptr));
+        (void)sidePanel;
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class ChannelPanel: public Ui_ChannelPanel {};
+    class sidePanel: public Ui_sidePanel {};
 } // namespace Ui
 
 QT_END_NAMESPACE

@@ -42,10 +42,12 @@
 #include <QMessageBox>
 #include <Qpainter>
 
+#include "Aud_UdpClient.h"
 #include "ES_UdpClient.h"
 #include "ES_WiFiClient.h"
 
 //Interface
+#include "components/side/sidePanel.h"
 #include "patientPanel.h"
 #include "sideBar.h"
 #include "channelPanel.h"
@@ -87,7 +89,37 @@ private:
     // Integra o menu lateral e conecta suas ações.
     void configurarMenuLateral();
 
+    // Integra o estimulador auditivo.
+    Aud_UdpClient *comm_aud;
+    QTimer *timerAudio;
+    QByteArray bufferAudioCompleto;
+    int indiceLeitura = 0;
+    const int TAM_PACOTE = 128;
+
+    sidePanel *painelAuditivo;
+
 private slots:
+    // ==========================================
+    // ESTIMULADOR ELETRICO
+    // ==========================================
+
+
+
+    // ==========================================
+    // ESTIMULADOR AUDITIVO
+    // ==========================================
+
+    void aud_testar_conexao();
+    void aud_iniciar_estimulo();
+    void aud_parar_estimulo();
+    void verificarPedidoAudio();
+    void prepararSinalWAV(QString caminho);
+    void aud_selecionar_audio();
+    void aud_alterar_volume(int vol_dir, int vol_esq);
+
+    // ==========================================
+    // ESTIMULADOR GERAL
+    // ==========================================
     void test_connection();
     void send_parameters();
     void startStimulations();

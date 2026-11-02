@@ -40,8 +40,18 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "test_connection",
+        "aud_testar_conexao",
         "",
+        "aud_iniciar_estimulo",
+        "aud_parar_estimulo",
+        "verificarPedidoAudio",
+        "prepararSinalWAV",
+        "caminho",
+        "aud_selecionar_audio",
+        "aud_alterar_volume",
+        "vol_dir",
+        "vol_esq",
+        "test_connection",
         "send_parameters",
         "startStimulations",
         "stopStimulations",
@@ -55,24 +65,42 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'test_connection'
+        // Slot 'aud_testar_conexao'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'send_parameters'
+        // Slot 'aud_iniciar_estimulo'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'startStimulations'
+        // Slot 'aud_parar_estimulo'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'stopStimulations'
+        // Slot 'verificarPedidoAudio'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'prepararSinalWAV'
+        QtMocHelpers::SlotData<void(QString)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 7 },
+        }}),
+        // Slot 'aud_selecionar_audio'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'aud_alterar_volume'
+        QtMocHelpers::SlotData<void(int, int)>(9, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 10 }, { QMetaType::Int, 11 },
+        }}),
+        // Slot 'test_connection'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'send_parameters'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'startStimulations'
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'stopStimulations'
+        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'enviaEstimEletr'
-        QtMocHelpers::SlotData<int(byte *, int)>(6, 2, QMC::AccessPrivate, QMetaType::Int, {{
-            { 0x80000000 | 7, 8 }, { QMetaType::Int, 9 },
+        QtMocHelpers::SlotData<int(byte *, int)>(16, 2, QMC::AccessPrivate, QMetaType::Int, {{
+            { 0x80000000 | 17, 18 }, { QMetaType::Int, 19 },
         }}),
         // Slot 'on_actionRegistrar_paciente_triggered'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_actionSalvar_sessao_triggered'
-        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_actionSobre_triggered'
-        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -96,15 +124,22 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->test_connection(); break;
-        case 1: _t->send_parameters(); break;
-        case 2: _t->startStimulations(); break;
-        case 3: _t->stopStimulations(); break;
-        case 4: { int _r = _t->enviaEstimEletr((*reinterpret_cast<std::add_pointer_t<byte*>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])));
+        case 0: _t->aud_testar_conexao(); break;
+        case 1: _t->aud_iniciar_estimulo(); break;
+        case 2: _t->aud_parar_estimulo(); break;
+        case 3: _t->verificarPedidoAudio(); break;
+        case 4: _t->prepararSinalWAV((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->aud_selecionar_audio(); break;
+        case 6: _t->aud_alterar_volume((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
+        case 7: _t->test_connection(); break;
+        case 8: _t->send_parameters(); break;
+        case 9: _t->startStimulations(); break;
+        case 10: _t->stopStimulations(); break;
+        case 11: { int _r = _t->enviaEstimEletr((*reinterpret_cast<std::add_pointer_t<byte*>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])));
             if (_a[0]) *reinterpret_cast<int*>(_a[0]) = std::move(_r); }  break;
-        case 5: _t->on_actionRegistrar_paciente_triggered(); break;
-        case 6: _t->on_actionSalvar_sessao_triggered(); break;
-        case 7: _t->on_actionSobre_triggered(); break;
+        case 12: _t->on_actionRegistrar_paciente_triggered(); break;
+        case 13: _t->on_actionSalvar_sessao_triggered(); break;
+        case 14: _t->on_actionSobre_triggered(); break;
         default: ;
         }
     }
@@ -129,14 +164,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 15;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 15;
     }
     return _id;
 }

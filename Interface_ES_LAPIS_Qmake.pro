@@ -18,6 +18,7 @@ QT += widgets printsupport
 #  Arquivos fonte, cabeçalhos, forms e recursos
 # ------------------------------------------------------------
 SOURCES += \
+    components/communication/Aud_UdpClient.cpp \
     components/general/durationPanel.cpp \
     components/general/qcustomplot.cpp \
     components/side/sidePanel.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
     components/sidebar/sideBar.cpp
 
 HEADERS += \
+    components/communication/Aud_UdpClient.h \
     components/general/durationPanel.h \
     components/general/qcustomplot.h \
     components/protocols/protocolSelector.h \
