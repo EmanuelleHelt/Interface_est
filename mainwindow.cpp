@@ -30,7 +30,9 @@
  * - Versão 1.0 (05-nov-2024): Teste e comprovação de funcionamento com senoidal. Não foi
  * avaliado completamente.
  */
-
+#include <QScrollArea>
+#include <QTabBar>
+#include <QTabWidget>
 #include <memory>
 #include <math.h>
 #include <cstdint> // para usar uint16_t
@@ -67,8 +69,8 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
     , comm(new ES_UdpClient)
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     // O carregamento é uma ação, não uma opção de protocolo.
@@ -131,90 +133,125 @@ void MainWindow::configurarMenuLateral()
 
 void MainWindow::integrarPaineisCanais()
 {
-    // Preserva o contêiner dos botões gerais.
+    // Preserva o contêiner dos botões gerais (Iniciar e Parar).
     QWidget *acoes = ui->iniciarEstimulo_pushButton->parentWidget();
-    // Cria o componente independente de duração.
     durationPanel = new DurationPanel(this);
+
     // Retira a área antiga sem destruir seus controles.
     QWidget *areaAntiga = takeCentralWidget();
 
-    // Cria a nova área central com organização por layouts.
+    // Cria a nova área central
     auto *novaArea = new QWidget(this);
     auto *principalLayout = new QVBoxLayout(novaArea);
-    principalLayout->setContentsMargins(12, 12, 12, 12);
-    principalLayout->setSpacing(12);
-    // Agrupa o carregamento e a seleção dos protocolos.
+    principalLayout->setContentsMargins(0, 0, 0, 0); // Sem margem externa para roubar espaço
+
+    // =============================================================
+    // IMPLEMENTAÇÃO DAS TABS
+    // =============================================================
+    QTabWidget *tabWidget = new QTabWidget(novaArea);
+
+    // -------------------------------------------------------------
+    // ABA 1: ESTIMULAÇÃO ELÉTRICA (AGORA COM ROLAGEM)
+    // -------------------------------------------------------------
+    QScrollArea *scrollEletrico = new QScrollArea(tabWidget);
+    scrollEletrico->setWidgetResizable(true);
+    scrollEletrico->setFrameShape(QFrame::NoFrame); // Sem borda inútil
+
+    QWidget *conteudoEletrico = new QWidget(scrollEletrico);
+    QVBoxLayout *eletricoMainLayout = new QVBoxLayout(conteudoEletrico);
+    eletricoMainLayout->setContentsMargins(12, 12, 12, 12);
+    eletricoMainLayout->setSpacing(12);
+
+    // 1. Cabeçalho: Protocolos E Testar Conexão juntinhos no topo da aba
+    auto *cabecalhoLayout = new QHBoxLayout;
     auto *protocolos = new ProtocolSelector(
         {
-            ui->loadProtocol,
-            ui->continuousProtocol,
-            ui->rampProtocol,
-            ui->thresholdProtocol,
-            ui->limitedProtocol,
-            ui->customProtocol
+            ui->loadProtocol, ui->continuousProtocol, ui->rampProtocol,
+            ui->thresholdProtocol, ui->limitedProtocol, ui->customProtocol
         },
-        novaArea
+        conteudoEletrico
         );
 
-    // Reutiliza o carregamento, os seletores e o botão de conexão.
-    auto *cabecalhoLayout = new QHBoxLayout;
     ui->testeCanais_pushButton->setText("Testar conexão");
-    ui->testeCanais_pushButton->setToolTip(
-        "Verificar a comunicação com o estimulador"
-        );   cabecalhoLayout->addWidget(protocolos, 1);
-    // Identifica a ação de verificar a conexão com o equipamento.
-    cabecalhoLayout->addWidget(ui->testeCanais_pushButton);
-    principalLayout->addLayout(cabecalhoLayout);
+    ui->testeCanais_pushButton->setToolTip("Verificar a comunicação com o estimulador");
 
-    // Reutiliza a duração e os botões gerais.
+    cabecalhoLayout->addWidget(protocolos, 1);
+    cabecalhoLayout->addWidget(ui->testeCanais_pushButton);
+    eletricoMainLayout->addLayout(cabecalhoLayout);
+
+    // 2. Duração e Botões de Ação
     auto *acoesLayout = new QHBoxLayout;
     acoesLayout->addWidget(durationPanel);
     acoesLayout->addStretch();
 
-    // Cria o botão que utiliza a função de envio existente.
-    auto *enviarButton = new QPushButton("Enviar", novaArea);
+    auto *enviarButton = new QPushButton("Enviar", conteudoEletrico);
+    connect(enviarButton, &QPushButton::clicked, this, &MainWindow::send_parameters);
+
     acoesLayout->addWidget(enviarButton);
+    acoesLayout->addWidget(acoes); // Contém Iniciar e Parar
 
-    // Mantém os botões Iniciar e Parar.
-    acoesLayout->addWidget(acoes);
+    eletricoMainLayout->addLayout(acoesLayout);
 
-    // Executa o envio sem alterar a geração ou os pacotes.
-    connect(enviarButton, &QPushButton::clicked,
-            this, &MainWindow::send_parameters);
-
-    principalLayout->addLayout(acoesLayout);
-
-    // Cria os dois painéis com estados independentes.
-    channel1Panel = new ChannelPanel(novaArea);
-    channel2Panel = new ChannelPanel(novaArea);
-
+    // 3. Painéis dos Canais 1 e 2
+    QHBoxLayout *canaisLayout = new QHBoxLayout;
+    channel1Panel = new ChannelPanel(conteudoEletrico);
+    channel2Panel = new ChannelPanel(conteudoEletrico);
     channel1Panel->setChannelNumber(1);
     channel2Panel->setChannelNumber(2);
-    // Atualiza os dois painéis ao selecionar ou sair de Rampa.
-    connect(ui->rampProtocol, &QToolButton::toggled,
-            channel1Panel, &ChannelPanel::setRampMode);
 
-    connect(ui->rampProtocol, &QToolButton::toggled,
-            channel2Panel, &ChannelPanel::setRampMode);
-
-    // Aplica a seleção inicial do protocolo.
+    connect(ui->rampProtocol, &QToolButton::toggled, channel1Panel, &ChannelPanel::setRampMode);
+    connect(ui->rampProtocol, &QToolButton::toggled, channel2Panel, &ChannelPanel::setRampMode);
     channel1Panel->setRampMode(ui->rampProtocol->isChecked());
     channel2Panel->setRampMode(ui->rampProtocol->isChecked());
 
-    // Distribui igualmente o espaço disponível entre os canais.
-    auto *canaisLayout = new QHBoxLayout;
     canaisLayout->addWidget(channel1Panel, 1);
     canaisLayout->addWidget(channel2Panel, 1);
-    principalLayout->addLayout(canaisLayout, 1);
+    eletricoMainLayout->addLayout(canaisLayout);
 
-    // Preserva os controles antigos ocultos durante a migração.
+    // Empacota o conteúdo na área de rolagem e adiciona como Aba 1
+    scrollEletrico->setWidget(conteudoEletrico);
+    tabWidget->addTab(scrollEletrico, "Estimulação Elétrica");
+
+    // -------------------------------------------------------------
+    // ABA 2: ESTIMULAÇÃO AUDITIVA
+    // -------------------------------------------------------------
+    QScrollArea *scrollAuditivo = new QScrollArea(tabWidget);
+    scrollAuditivo->setWidgetResizable(true);
+    scrollAuditivo->setFrameShape(QFrame::NoFrame);
+
+    QWidget *conteudoAuditivo = new QWidget(scrollAuditivo);
+    QVBoxLayout *auditivoMainLayout = new QVBoxLayout(conteudoAuditivo);
+    auditivoMainLayout->setContentsMargins(12, 12, 12, 12);
+    auditivoMainLayout->setSpacing(12);
+
+    auto *protocolosAuditivo = new ProtocolSelector(
+        {
+            ui->loadProtocolAuditivo,
+            ui->AudiometerProtocol,
+            ui->PEAProtocol
+        },
+        conteudoAuditivo
+        );
+
+    auditivoMainLayout->addWidget(protocolosAuditivo);
+
+    scrollAuditivo->setWidget(conteudoAuditivo);
+    tabWidget->addTab(scrollAuditivo, "Estimulação Auditiva");
+
+    // -------------------------------------------------------------
+    // ABA 3: MODO MISTO (Placeholder Temporário)
+    // -------------------------------------------------------------
+    QWidget *abaMisto = new QWidget(tabWidget);
+    tabWidget->addTab(abaMisto, "Modo Misto");
+
+    // =============================================================
+    principalLayout->addWidget(tabWidget, 1);
+
     areaAntiga->setParent(novaArea);
     areaAntiga->hide();
 
     setCentralWidget(novaArea);
 
-    // O envio ainda utiliza os controles antigos.
-    // Será habilitado após a adaptação da leitura dos parâmetros.
     ui->iniciarEstimulo_pushButton->setEnabled(true);
 }
 

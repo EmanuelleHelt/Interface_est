@@ -20,6 +20,7 @@ QT += widgets printsupport
 SOURCES += \
     components/general/durationPanel.cpp \
     components/general/qcustomplot.cpp \
+    components/side/sidePanel.cpp \
     main.cpp \
     mainwindow.cpp \
     components/channel/channelPanel.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     components/general/durationPanel.h \
     components/general/qcustomplot.h \
     components/protocols/protocolSelector.h \
+    components/side/sidePanel.h \
     mainwindow.h \
     components/channel/channelPanel.h \
     components/communication/ES_Communication.h \
@@ -53,6 +55,7 @@ HEADERS += \
 
 FORMS += \
     components/channel/channelPanel.ui \
+    components/side/sidePanel.ui \
     mainwindow.ui \
     components/patients/patientPanel.ui \
     components/protocols/ramp/rampSettingsPanel.ui \
