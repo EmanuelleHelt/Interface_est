@@ -132,20 +132,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="spinDuracaoEstimulo">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>1024</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
+           <widget class="QTimeEdit" name="spinDuracaoEstimulo"/>
           </item>
          </layout>
         </item>
@@ -166,20 +153,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="timeReproducaoCiclica">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>00:00:00</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
+           <widget class="QTimeEdit" name="timeReproducaoCiclica"/>
           </item>
          </layout>
         </item>
@@ -391,16 +365,22 @@
           </widget>
          </item>
          <item>
-          <widget class="QDoubleSpinBox" name="spinAmplitude">
+          <widget class="QSpinBox" name="spinAmplitude">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
-             <width>110</width>
+             <width>90</width>
              <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>90</width>
+             <width>110</width>
              <height>16777215</height>
             </size>
            </property>

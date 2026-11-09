@@ -286,7 +286,7 @@ public:
         protocoloEstimulacao_comboBox->setFont(font2);
         layoutWidget_2 = new QWidget(centralwidget);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(30, 190, 450, 131));
+        layoutWidget_2->setGeometry(QRect(30, 190, 455, 131));
         Protocolo_audio = new QHBoxLayout(layoutWidget_2);
         Protocolo_audio->setObjectName("Protocolo_audio");
         Protocolo_audio->setContentsMargins(0, 0, 0, 0);
@@ -352,8 +352,8 @@ public:
         protocoloEstimulacao_comboBox->setItemText(4, QCoreApplication::translate("MainWindow", "Limitado ", nullptr));
 
         loadProtocolAuditivo->setText(QCoreApplication::translate("MainWindow", "Carregar", nullptr));
-        AudiometerProtocol->setText(QCoreApplication::translate("MainWindow", "Audiometro", nullptr));
-        PEAProtocol->setText(QCoreApplication::translate("MainWindow", "Estimulador S\303\255ncrono (PEA)", nullptr));
+        AudiometerProtocol->setText(QCoreApplication::translate("MainWindow", "Estimulador S\303\255ncrono (PEA)", nullptr));
+        PEAProtocol->setText(QCoreApplication::translate("MainWindow", "Audiometro", nullptr));
     } // retranslateUi
 
 };

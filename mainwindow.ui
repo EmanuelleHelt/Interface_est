@@ -390,7 +390,7 @@
      <rect>
       <x>30</x>
       <y>190</y>
-      <width>450</width>
+      <width>455</width>
       <height>131</height>
      </rect>
     </property>
@@ -424,7 +424,7 @@
      <item>
       <widget class="QToolButton" name="AudiometerProtocol">
        <property name="text">
-        <string>Audiometro</string>
+        <string>Estimulador Síncrono (PEA)</string>
        </property>
        <property name="icon">
         <iconset resource="resources.qrc">
@@ -450,7 +450,7 @@
      <item>
       <widget class="QToolButton" name="PEAProtocol">
        <property name="text">
-        <string>Estimulador Síncrono (PEA)</string>
+        <string>Audiometro</string>
        </property>
        <property name="icon">
         <iconset resource="resources.qrc">

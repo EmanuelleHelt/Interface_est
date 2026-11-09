@@ -13,15 +13,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
+#include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -46,11 +45,11 @@ public:
     QComboBox *comboTipoEstimulo;
     QHBoxLayout *horizontalLayout_3;
     QLabel *frequencyLabel;
-    QLineEdit *spinDuracaoEstimulo;
+    QTimeEdit *spinDuracaoEstimulo;
     QHBoxLayout *horizontalLayout_4;
     QLabel *amplitudeLabel;
     QCheckBox *checkReproducaoCiclica;
-    QLineEdit *timeReproducaoCiclica;
+    QTimeEdit *timeReproducaoCiclica;
     QFrame *frame_11;
     QVBoxLayout *verticalLayout_11;
     QFrame *frame_ch1_ciclos_4;
@@ -68,7 +67,7 @@ public:
     QFrame *frame_ch1_ampl_2;
     QHBoxLayout *horizontalLayout_25;
     QLabel *label_ch1_ampl_2;
-    QDoubleSpinBox *spinAmplitude;
+    QSpinBox *spinAmplitude;
     QFrame *frame_20;
     QHBoxLayout *horizontalLayout_30;
     QLabel *label_38;
@@ -178,14 +177,8 @@ public:
 
         horizontalLayout_3->addWidget(frequencyLabel);
 
-        spinDuracaoEstimulo = new QLineEdit(stimulusGroupBox);
+        spinDuracaoEstimulo = new QTimeEdit(stimulusGroupBox);
         spinDuracaoEstimulo->setObjectName("spinDuracaoEstimulo");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(spinDuracaoEstimulo->sizePolicy().hasHeightForWidth());
-        spinDuracaoEstimulo->setSizePolicy(sizePolicy1);
-        spinDuracaoEstimulo->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         horizontalLayout_3->addWidget(spinDuracaoEstimulo);
 
@@ -204,11 +197,8 @@ public:
 
         horizontalLayout_4->addWidget(checkReproducaoCiclica);
 
-        timeReproducaoCiclica = new QLineEdit(stimulusGroupBox);
+        timeReproducaoCiclica = new QTimeEdit(stimulusGroupBox);
         timeReproducaoCiclica->setObjectName("timeReproducaoCiclica");
-        sizePolicy1.setHeightForWidth(timeReproducaoCiclica->sizePolicy().hasHeightForWidth());
-        timeReproducaoCiclica->setSizePolicy(sizePolicy1);
-        timeReproducaoCiclica->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         horizontalLayout_4->addWidget(timeReproducaoCiclica);
 
@@ -223,11 +213,11 @@ public:
 
         frame_11 = new QFrame(sidePanel);
         frame_11->setObjectName("frame_11");
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
-        sizePolicy2.setHorizontalStretch(1);
-        sizePolicy2.setVerticalStretch(4);
-        sizePolicy2.setHeightForWidth(frame_11->sizePolicy().hasHeightForWidth());
-        frame_11->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy1.setHorizontalStretch(1);
+        sizePolicy1.setVerticalStretch(4);
+        sizePolicy1.setHeightForWidth(frame_11->sizePolicy().hasHeightForWidth());
+        frame_11->setSizePolicy(sizePolicy1);
         frame_11->setMinimumSize(QSize(350, 546));
         frame_11->setFrameShape(QFrame::Shape::Box);
         frame_11->setFrameShadow(QFrame::Shadow::Raised);
@@ -248,11 +238,11 @@ public:
 
         spinVolume = new QSpinBox(frame_ch1_ciclos_4);
         spinVolume->setObjectName("spinVolume");
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(spinVolume->sizePolicy().hasHeightForWidth());
-        spinVolume->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(spinVolume->sizePolicy().hasHeightForWidth());
+        spinVolume->setSizePolicy(sizePolicy2);
         spinVolume->setMinimumSize(QSize(110, 0));
         spinVolume->setMaximumSize(QSize(90, 16777215));
         spinVolume->setMaximum(100);
@@ -278,8 +268,8 @@ public:
 
         spinFreqAudio = new QSpinBox(frame_ch1_ciclos_2);
         spinFreqAudio->setObjectName("spinFreqAudio");
-        sizePolicy3.setHeightForWidth(spinFreqAudio->sizePolicy().hasHeightForWidth());
-        spinFreqAudio->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinFreqAudio->sizePolicy().hasHeightForWidth());
+        spinFreqAudio->setSizePolicy(sizePolicy2);
         spinFreqAudio->setMinimumSize(QSize(110, 0));
         spinFreqAudio->setMaximumSize(QSize(90, 16777215));
         spinFreqAudio->setMaximum(10000);
@@ -305,8 +295,8 @@ public:
 
         spinDuracaoMs = new QSpinBox(frame_ch1_freq_2);
         spinDuracaoMs->setObjectName("spinDuracaoMs");
-        sizePolicy3.setHeightForWidth(spinDuracaoMs->sizePolicy().hasHeightForWidth());
-        spinDuracaoMs->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinDuracaoMs->sizePolicy().hasHeightForWidth());
+        spinDuracaoMs->setSizePolicy(sizePolicy2);
         spinDuracaoMs->setMinimumSize(QSize(110, 0));
         spinDuracaoMs->setMaximumSize(QSize(90, 16777215));
         spinDuracaoMs->setMaximum(64000);
@@ -330,10 +320,15 @@ public:
 
         horizontalLayout_25->addWidget(label_ch1_ampl_2);
 
-        spinAmplitude = new QDoubleSpinBox(frame_ch1_ampl_2);
+        spinAmplitude = new QSpinBox(frame_ch1_ampl_2);
         spinAmplitude->setObjectName("spinAmplitude");
-        spinAmplitude->setMinimumSize(QSize(110, 0));
-        spinAmplitude->setMaximumSize(QSize(90, 16777215));
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(spinAmplitude->sizePolicy().hasHeightForWidth());
+        spinAmplitude->setSizePolicy(sizePolicy3);
+        spinAmplitude->setMinimumSize(QSize(90, 0));
+        spinAmplitude->setMaximumSize(QSize(110, 16777215));
 
         horizontalLayout_25->addWidget(spinAmplitude);
 
@@ -354,8 +349,8 @@ public:
 
         spinFreqPortadora = new QSpinBox(frame_20);
         spinFreqPortadora->setObjectName("spinFreqPortadora");
-        sizePolicy3.setHeightForWidth(spinFreqPortadora->sizePolicy().hasHeightForWidth());
-        spinFreqPortadora->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinFreqPortadora->sizePolicy().hasHeightForWidth());
+        spinFreqPortadora->setSizePolicy(sizePolicy2);
         spinFreqPortadora->setMinimumSize(QSize(110, 0));
         spinFreqPortadora->setMaximumSize(QSize(90, 16777215));
         spinFreqPortadora->setMaximum(64000);
@@ -381,8 +376,8 @@ public:
 
         spinFreqModulacao = new QSpinBox(frame_21);
         spinFreqModulacao->setObjectName("spinFreqModulacao");
-        sizePolicy3.setHeightForWidth(spinFreqModulacao->sizePolicy().hasHeightForWidth());
-        spinFreqModulacao->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinFreqModulacao->sizePolicy().hasHeightForWidth());
+        spinFreqModulacao->setSizePolicy(sizePolicy2);
         spinFreqModulacao->setMinimumSize(QSize(110, 0));
         spinFreqModulacao->setMaximumSize(QSize(90, 16777215));
         spinFreqModulacao->setMaximum(64000);
@@ -408,8 +403,8 @@ public:
 
         spinFatorAM = new QSpinBox(frame_16);
         spinFatorAM->setObjectName("spinFatorAM");
-        sizePolicy3.setHeightForWidth(spinFatorAM->sizePolicy().hasHeightForWidth());
-        spinFatorAM->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinFatorAM->sizePolicy().hasHeightForWidth());
+        spinFatorAM->setSizePolicy(sizePolicy2);
         spinFatorAM->setMinimumSize(QSize(110, 0));
         spinFatorAM->setMaximumSize(QSize(90, 16777215));
         spinFatorAM->setMaximum(64000);
@@ -435,8 +430,8 @@ public:
 
         spinExponencialMod = new QSpinBox(frame_17);
         spinExponencialMod->setObjectName("spinExponencialMod");
-        sizePolicy3.setHeightForWidth(spinExponencialMod->sizePolicy().hasHeightForWidth());
-        spinExponencialMod->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinExponencialMod->sizePolicy().hasHeightForWidth());
+        spinExponencialMod->setSizePolicy(sizePolicy2);
         spinExponencialMod->setMinimumSize(QSize(110, 0));
         spinExponencialMod->setMaximumSize(QSize(90, 16777215));
         spinExponencialMod->setMaximum(64000);
@@ -462,8 +457,8 @@ public:
 
         spinFaseFM = new QSpinBox(frame_18);
         spinFaseFM->setObjectName("spinFaseFM");
-        sizePolicy3.setHeightForWidth(spinFaseFM->sizePolicy().hasHeightForWidth());
-        spinFaseFM->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinFaseFM->sizePolicy().hasHeightForWidth());
+        spinFaseFM->setSizePolicy(sizePolicy2);
         spinFaseFM->setMinimumSize(QSize(110, 0));
         spinFaseFM->setMaximumSize(QSize(90, 16777215));
         spinFaseFM->setMaximum(64000);
@@ -489,8 +484,8 @@ public:
 
         spinFatorFM = new QSpinBox(frame_19);
         spinFatorFM->setObjectName("spinFatorFM");
-        sizePolicy3.setHeightForWidth(spinFatorFM->sizePolicy().hasHeightForWidth());
-        spinFatorFM->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(spinFatorFM->sizePolicy().hasHeightForWidth());
+        spinFatorFM->setSizePolicy(sizePolicy2);
         spinFatorFM->setMinimumSize(QSize(110, 0));
         spinFatorFM->setMaximumSize(QSize(90, 16777215));
         spinFatorFM->setMaximum(64000);
@@ -529,10 +524,8 @@ public:
         comboTipoEstimulo->setItemText(0, QCoreApplication::translate("sidePanel", "Tipos...", nullptr));
 
         frequencyLabel->setText(QCoreApplication::translate("sidePanel", "Dura\303\247\303\243o do est\303\255mulo", nullptr));
-        spinDuracaoEstimulo->setText(QCoreApplication::translate("sidePanel", "1024", nullptr));
         amplitudeLabel->setText(QCoreApplication::translate("sidePanel", "Reprodu\303\247\303\243o c\303\255clica", nullptr));
         checkReproducaoCiclica->setText(QString());
-        timeReproducaoCiclica->setText(QCoreApplication::translate("sidePanel", "00:00:00", nullptr));
         label_61->setText(QCoreApplication::translate("sidePanel", "Volume (%)", nullptr));
         label_31->setText(QCoreApplication::translate("sidePanel", "Frequ\303\252ncia (Hz) audio", nullptr));
         label_ch1_freq_2->setText(QCoreApplication::translate("sidePanel", "Dura\303\247\303\243o est\303\255mulo (ms)", nullptr));
